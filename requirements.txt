@@ -1,0 +1,8 @@
+flask >= 0.12.2
+flask_admin >= 1.5.1
+flask_mongoengine >= 0.9.3
+marshmallow >= 2.15.0
+marshmallow_mongoengine >= 0.9.1
+pymongo >= 3.6.1
+python-slugify >= 1.2.5
+flasgger >= 0.8.1
