@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+import os
+
 from flask import Flask
 from app.models import *
 from app.routes import event_blueprint, person_blueprint
@@ -21,8 +23,14 @@ def main():
     app.register_blueprint(event_blueprint, url_prefix='/api')
     app.register_blueprint(person_blueprint, url_prefix='/api')
 
-    # app.run(port=8080, ssl_context='adhoc')
-    app.run(port=8080)
+    # Workaround for the werkzeug reloader removing the current directory from the
+    # path. It's nasty, but it works! Inspired by:
+    # https://github.com/mitsuhiko/flask/issues/1246
+    os.environ['PYTHONPATH'] = os.getcwd()
+
+    port = os.getenv('PORT', '8080')
+    # app.run(port=int(port), ssl_context='adhoc)
+    app.run(host='0.0.0.0', port=int(port))
 
 
 if __name__ == '__main__':

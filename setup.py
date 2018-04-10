@@ -1,6 +1,5 @@
 # coding: utf-8
 
-import sys
 from setuptools import setup, find_packages
 
 NAME = "app"
@@ -16,12 +15,12 @@ VERSION = "1.0.0"
 setup(
     name=NAME,
     version=VERSION,
-    description="flask-restplus-mongo",
-    author_email="",
-    url="",
-    keywords=["flask-restplus-mongo"],
+    description="flask-swagger-mongo",
+    # author_email="",
+    # url="",
+    keywords=["flask-swagger-mongo"],
+    # include_package_data=True,
     packages=find_packages(),
-    include_package_data=True,
     entry_points={
         'console_scripts': ['app=app.__main__:main']}
 )
